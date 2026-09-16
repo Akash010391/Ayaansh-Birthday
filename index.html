@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ayaansh's 5th Birthday Grand Prix | Official Invitation</title>
+  
+  <!-- Open Graph & Social Sharing Meta Tags for WhatsApp & Social Media Rich Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🏎️ You're Invited: Ayaansh's 5th Birthday Grand Prix! 🏁">
+  <meta property="og:description" content="Start your engines! Come join us on 26th September at 6:30 PM onwards at Royal Andhra Spice, Bengaluru. Tap to open the interactive invitation!">
+  <meta property="og:image" content="image_3.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#E10600">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Racing Sans One, Montserrat, Barlow Condensed, Permanent Marker -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;0,900;1,700;1,900&family=Montserrat:wght@400;500;600;700;800&family=Racing+Sans+One&family=Bungee&display=swap" rel="stylesheet">
+  <!-- Tone.js for dynamic racing sound effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+  <!-- Canvas Confetti for celebratory bursts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            racing: ['"Racing Sans One"', 'sans-serif'],
+            bungee: ['"Bungee"', 'cursive'],
+            barlow: ['"Barlow Condensed"', 'sans-serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            f1red: '#E10600',
+            f1crimson: '#B30000',
+            f1dark: '#111315',
+            f1asphalt: '#1c1f24',
+            f1gold: '#FFB800',
+            f1amber: '#F59E0B',
+            f1silver: '#E2E8F0',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Checkered pattern background */
+    .bg-checker {
+      background-image: 
+        linear-gradient(45deg, #111 25%, transparent 25%), 
+        linear-gradient(-45deg, #111 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #111 75%), 
+        linear-gradient(-45deg, transparent 75%, #111 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    }
+    .bg-checker-white {
+      background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+      background-size: 14px 14px;
+      background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+    }
+
+    /* Track curb ribbon (red & white curbs) */
+    .curb-pattern {
+      background: repeating-linear-gradient(
+        -45deg,
+        #E10600,
+        #E10600 12px,
+        #FFFFFF 12px,
+        #FFFFFF 24px
+      );
+    }
+
+    /* 3D Perspective card fold */
+    .card-container {
+      perspective: 2000px;
+    }
+    .card-book {
+      transform-style: preserve-3d;
+      transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .panel-face {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    /* Speed lines animation */
+    @keyframes speedline {
+      0% { transform: translateX(-100%); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateX(200%); opacity: 0; }
+    }
+    .animate-speed-1 { animation: speedline 1.8s infinite linear; }
+    .animate-speed-2 { animation: speedline 2.2s infinite linear 0.7s; }
+
+    /* Pulsing glow */
+    @keyframes engineGlow {
+      0%, 100% { filter: drop-shadow(0 0 12px rgba(225, 6, 0, 0.6)); }
+      50% { filter: drop-shadow(0 0 25px rgba(255, 184, 0, 0.8)); }
+    }
+    .engine-pulse {
+      animation: engineGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E10600;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111315;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-black via-zinc-900 to-black text-white font-sans min-h-screen flex flex-col items-center justify-start overflow-x-hidden antialiased selection:bg-f1red selection:text-white">
+
+  <!-- Top Audio & Utility Banner -->
+  <header class="w-full max-w-5xl mx-auto px-4 py-3 flex items-center justify-between border-b border-zinc-800/80 backdrop-blur-md sticky top-0 z-50 bg-black/70">
+    <div class="flex items-center space-x-2">
+      <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-f1red font-racing text-white text-lg font-black shadow-lg shadow-f1red/40">5</span>
+      <div>
+        <h1 class="font-barlow uppercase font-black text-sm tracking-wider text-f1silver leading-tight">AYAANSH'S GRAND PRIX</h1>
+        <p class="text-[10px] text-zinc-400 font-semibold tracking-widest uppercase">Official Birthday E-Card</p>
+      </div>
+    </div>
+
+    <!-- Mode Selector & Audio Toggle -->
+    <div class="flex items-center space-x-2">
+      <button id="soundBtn" onclick="toggleEngineAudio()" title="Toggle Race Sound" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-semibold text-zinc-300 transition-all hover:scale-105 active:scale-95 shadow">
+        <span id="soundIcon">🔊</span>
+        <span id="soundText" class="hidden sm:inline">Engine FX</span>
+      </button>
+
+      <button onclick="triggerConfettiBurst()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-f1red to-amber-600 hover:from-red-500 hover:to-amber-500 text-white text-xs font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-f1red/30">
+        <span>🎉</span>
+        <span class="hidden sm:inline">Celebrate</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Interactive Mode Tabs -->
+  <main class="w-full max-w-5xl mx-auto px-3 py-4 flex flex-col items-center flex-grow">
+    
+    <!-- View Switcher -->
+    <div class="inline-flex p-1 bg-zinc-900 border border-zinc-800 rounded-full mb-6 shadow-inner text-xs font-bold">
+      <button id="viewFoldBtn" onclick="setViewMode('fold')" class="px-4 py-1.5 rounded-full transition-all text-white bg-f1red shadow-md">
+        📖 Foldable 3D Card
+      </button>
+      <button id="viewAllBtn" onclick="setViewMode('all')" class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white">
+        🏁 View All 4 Panels
+      </button>
+    </div>
+
+    <!-- MODE 1: 3D FOLDABLE E-CARD VIEW -->
+    <div id="foldViewContainer" class="w-full flex flex-col items-center">
+      
+      <!-- Fold Page Selector Buttons -->
+      <div class="flex items-center justify-center space-x-2 mb-4 overflow-x-auto max-w-full py-1">
+        <button onclick="setFoldStep(1)" id="stepBtn1" class="step-nav px-3 py-1 text-xs font-bold rounded-lg border border-f1red bg-f1red text-white flex items-center space-x-1 shadow transition-all">
+          <span>1. Front Cover</span>
+        </button>
+        <button onclick="setFoldStep(2)" id="stepBtn2" class="step-nav px-3 py-1 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 flex items-center space-x-1 shadow transition-all">
+          <span>2. Inside Left</span>
+        </button>
+        <button onclick="setFoldStep(3)" id="stepBtn3" class="step-nav px-3 py-1 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 flex items-center space-x-1 shadow transition-all">
+          <span>3. Inside Right</span>
+        </button>
+        <button onclick="setFoldStep(4)" id="stepBtn4" class="step-nav px-3 py-1 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 flex items-center space-x-1 shadow transition-all">
+          <span>4. Back Cover</span>
+        </button>
+      </div>
+
+      <!-- Instruction note -->
+      <p class="text-[11px] text-zinc-400 mb-3 flex items-center space-x-1.5 font-medium">
+        <span>👉 Tap next panel below or use arrow buttons to flip through the e-card</span>
+      </p>
+
+      <!-- Active Display Card Stage -->
+      <div class="relative w-full max-w-[420px] aspect-[9/14] sm:aspect-[9/13.8] rounded-2xl overflow-hidden shadow-2xl shadow-red-950/40 border border-zinc-700/60 bg-zinc-950 transition-all duration-500">
+        
+        <!-- Panel 1 Stage -->
+        <div id="stagePanel1" class="panel-stage absolute inset-0 w-full h-full transition-all duration-700 opacity-100 transform translate-x-0">
+          <!-- Insert Content for Front Cover -->
+          <div id="frontCoverInject" class="w-full h-full"></div>
+        </div>
+
+        <!-- Panel 2 Stage -->
+        <div id="stagePanel2" class="panel-stage absolute inset-0 w-full h-full transition-all duration-700 opacity-0 pointer-events-none transform translate-x-full">
+          <!-- Insert Content for Inside Left -->
+          <div id="insideLeftInject" class="w-full h-full"></div>
+        </div>
+
+        <!-- Panel 3 Stage -->
+        <div id="stagePanel3" class="panel-stage absolute inset-0 w-full h-full transition-all duration-700 opacity-0 pointer-events-none transform translate-x-full">
+          <!-- Insert Content for Inside Right -->
+          <div id="insideRightInject" class="w-full h-full"></div>
+        </div>
+
+        <!-- Panel 4 Stage -->
+        <div id="stagePanel4" class="panel-stage absolute inset-0 w-full h-full transition-all duration-700 opacity-0 pointer-events-none transform translate-x-full">
+          <!-- Insert Content for Back Cover -->
+          <div id="backCoverInject" class="w-full h-full"></div>
+        </div>
+
+        <!-- Navigation Overlay Chevrons -->
+        <button onclick="prevFoldStep()" aria-label="Previous panel" class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur flex items-center justify-center shadow-lg border border-white/20 transition-transform active:scale-90 z-20">
+          ❮
+        </button>
+        <button onclick="nextFoldStep()" aria-label="Next panel" class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur flex items-center justify-center shadow-lg border border-white/20 transition-transform active:scale-90 z-20">
+          ❯
+        </button>
+      </div>
+
+      <!-- Quick Action Controls for the Card -->
+      <div class="flex items-center justify-center space-x-3 mt-4">
+        <button onclick="prevFoldStep()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 border border-zinc-700 flex items-center space-x-1.5 transition">
+          <span>⬅ Previous</span>
+        </button>
+        <span id="pageIndicator" class="text-xs font-barlow tracking-widest font-black text-f1red px-3 py-1 bg-zinc-900 rounded-lg border border-zinc-800">
+          PANEL 1 OF 4
+        </span>
+        <button onclick="nextFoldStep()" class="px-4 py-2 rounded-xl bg-f1red hover:bg-red-700 text-xs font-bold text-white shadow-lg shadow-f1red/30 flex items-center space-x-1.5 transition">
+          <span>Next ➡</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODE 2: ALL 4 PANELS COMPLETE LAYOUT (For smooth overview & print) -->
+    <div id="allPanelsContainer" class="hidden w-full max-w-5xl flex-col items-center">
+      <div class="text-center mb-6">
+        <span class="curb-pattern inline-block h-1.5 w-24 rounded-full mb-2"></span>
+        <h2 class="text-2xl font-racing tracking-wide text-white uppercase">Full 4-Panel Invitation Spread</h2>
+        <p class="text-xs text-zinc-400 font-medium">Front Cover ➔ Inside Left ➔ Inside Right ➔ Back Cover</p>
+      </div>
+
+      <!-- 4 Panel Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        
+        <!-- Panel 1 Card -->
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-black uppercase text-f1red mb-2 tracking-widest font-barlow flex items-center">
+            <span class="w-2 h-2 rounded-full bg-f1red mr-1.5 animate-ping"></span> PANEL 1: FRONT COVER
+          </span>
+          <div class="w-full max-w-[360px] aspect-[9/14] rounded-2xl overflow-hidden shadow-2xl border-2 border-f1red/40 bg-zinc-950" id="panel1Clone"></div>
+        </div>
+
+        <!-- Panel 2 Card -->
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-black uppercase text-zinc-400 mb-2 tracking-widest font-barlow">
+            PANEL 2: INSIDE LEFT
+          </span>
+          <div class="w-full max-w-[360px] aspect-[9/14] rounded-2xl overflow-hidden shadow-2xl border border-zinc-700 bg-zinc-950" id="panel2Clone"></div>
+        </div>
+
+        <!-- Panel 3 Card -->
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-black uppercase text-f1gold mb-2 tracking-widest font-barlow">
+            PANEL 3: INSIDE RIGHT
+          </span>
+          <div class="w-full max-w-[360px] aspect-[9/14] rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-zinc-950" id="panel3Clone"></div>
+        </div>
+
+        <!-- Panel 4 Card -->
+        <div class="flex flex-col items-center">
+          <span class="text-xs font-black uppercase text-zinc-400 mb-2 tracking-widest font-barlow">
+            PANEL 4: BACK COVER
+          </span>
+          <div class="w-full max-w-[360px] aspect-[9/14] rounded-2xl overflow-hidden shadow-2xl border border-zinc-700 bg-zinc-950" id="panel4Clone"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Ready Action Dock (WhatsApp Sharing, Directions, Calendar) -->
+    <section class="w-full max-w-md mt-10 bg-gradient-to-b from-zinc-900/90 to-zinc-950/90 border border-zinc-800 rounded-3xl p-5 shadow-2xl backdrop-blur-xl">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">🏁</span>
+          <h3 class="font-racing text-base uppercase text-white tracking-wider">Pit Stop Quick Actions</h3>
+        </div>
+        <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-red-950/80 text-f1red border border-f1red/30">Ready to Share</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 mb-3">
+        <!-- Direct WhatsApp RSVP -->
+        <a href="https://wa.me/918867875672?text=Hi!%20We%20would%20love%20to%20attend%20Ayaansh's%205th%20Birthday%20Celebration!%20🏁" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba5a] text-black font-bold text-xs py-3 px-3 rounded-2xl shadow-lg transition-transform active:scale-95">
+          <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          <span>RSVP on WhatsApp</span>
+        </a>
+
+        <!-- Call RSVP Phone -->
+        <a href="tel:8867875672" class="flex items-center justify-center space-x-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs py-3 px-3 rounded-2xl border border-zinc-700 shadow transition-transform active:scale-95">
+          <span>📞</span>
+          <span>Call 8867875672</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Google Maps Venue Navigation -->
+        <a href="https://www.google.com/maps/search/?api=1&query=ROYAL+ANDHRA+SPICE+602+5th+A+Cross+Rd+HRBR+Layout+2nd+Block+Banaswadi+Bengaluru+Karnataka+560043" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs py-2.5 px-3 rounded-2xl border border-zinc-700 transition">
+          <span>📍</span>
+          <span>Open in Maps</span>
+        </a>
+
+        <!-- Native Share / Forward Button -->
+        <button onclick="shareInvitationLink()" class="flex items-center justify-center space-x-2 bg-zinc-800 hover:bg-zinc-700 text-amber-400 font-semibold text-xs py-2.5 px-3 rounded-2xl border border-zinc-700 transition active:scale-95">
+          <span>📲</span>
+          <span id="shareBtnText">Share Web Link</span>
+        </button>
+      </div>
+
+      <!-- Copy WhatsApp Invite Text -->
+      <div class="mt-3">
+        <button onclick="copyInviteText()" class="w-full flex items-center justify-center space-x-2 bg-f1red/20 hover:bg-f1red/30 text-f1red font-bold text-xs py-2.5 px-3 rounded-2xl border border-f1red/30 transition active:scale-95">
+          <span id="copyIcon">📋</span>
+          <span id="copyBtnText">Copy WhatsApp Invite Message</span>
+        </button>
+      </div>
+
+      <!-- Add to Calendar Link -->
+      <div class="mt-3 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-400">
+        <span class="flex items-center space-x-1">
+          <span>📅</span>
+          <span>26th September • 6:30 PM</span>
+        </span>
+        <button onclick="addToGoogleCalendar()" class="text-f1gold hover:underline font-bold flex items-center space-x-1">
+          <span>Add to Calendar</span>
+          <span>↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Photo Customizer / Switcher Modal Trigger -->
+    <div class="mt-6 flex flex-col items-center">
+      <p class="text-[11px] text-zinc-500 text-center max-w-sm">
+        Featuring Ayaansh in his bespoke No. 5 Red Racing Team cockpit. Want to test a different personal snapshot?
+      </p>
+      <label class="mt-2 inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-700/80 hover:border-zinc-500 text-[11px] font-semibold text-zinc-300 cursor-pointer transition">
+        <span>📸</span>
+        <span>Tap to upload / test another photo</span>
+        <input type="file" accept="image/*" id="customPhotoInput" class="hidden" onchange="handleCustomPhotoUpload(event)">
+      </label>
+    </div>
+
+  </main>
+
+  <!-- TEMPLATES TO INJECT INTO FOLD STAGE AND GRID -->
+  
+  <!-- PANEL 1 TEMPLATE: FRONT COVER -->
+  <template id="tmpl-panel1">
+    <div class="relative w-full h-full bg-gradient-to-b from-[#160000] via-[#090a0f] to-[#040406] text-white flex flex-col justify-between overflow-hidden p-5 select-none">
+      
+      <!-- Top Racing Chequered Header Ribbons -->
+      <div class="absolute top-0 left-0 right-0 h-4 bg-checker-white opacity-80 z-10"></div>
+      <div class="absolute top-4 left-0 right-0 h-1.5 curb-pattern z-10"></div>
+
+      <!-- Dynamic Light Streaks & Dust Particles in Background -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-80 h-32 bg-f1red/20 rounded-full blur-3xl transform -rotate-12"></div>
+        <div class="absolute bottom-10 right-0 w-72 h-40 bg-amber-500/15 rounded-full blur-3xl"></div>
+        <!-- Speed Streaks -->
+        <div class="absolute top-28 left-0 w-3/4 h-[1.5px] bg-gradient-to-r from-transparent via-red-500 to-transparent animate-speed-1"></div>
+        <div class="absolute top-36 left-10 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent animate-speed-2"></div>
+      </div>
+
+      <!-- Header Section: START YOUR ENGINES... -->
+      <div class="relative z-20 pt-3 text-center">
+        <!-- Badge with checkered flags -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-black/60 border border-zinc-700/80 shadow-lg backdrop-blur mb-2">
+          <span class="text-sm">🏁</span>
+          <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-300 font-barlow">GRAND PRIX INVITATION</span>
+          <span class="text-sm">🏁</span>
+        </div>
+
+        <!-- START YOUR ENGINES Banner -->
+        <div class="font-barlow italic font-black uppercase text-xs sm:text-sm tracking-wider text-amber-400 drop-shadow">
+          START YOUR ENGINES…
+        </div>
+        <div class="font-racing text-xl sm:text-2xl uppercase tracking-wide text-white drop-shadow-md">
+          IT’S TIME TO CELEBRATE! 🏁
+        </div>
+
+        <!-- Name Plate Shield -->
+        <div class="mt-3 relative inline-block mx-auto">
+          <div class="relative px-6 py-2 bg-gradient-to-r from-f1crimson via-f1red to-f1crimson rounded-xl shadow-xl shadow-red-900/60 border-t border-red-300/40 border-b-2 border-black">
+            <span class="text-[10px] font-black uppercase tracking-[0.25em] text-amber-200 block font-barlow -mb-1">CELEBRATING</span>
+            <h2 class="font-bungee text-2xl sm:text-3xl tracking-wide text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              AYAANSH’S
+            </h2>
+            <div class="inline-flex items-center space-x-2 bg-black/80 px-3 py-0.5 rounded-full border border-amber-400/40 mt-0.5">
+              <span class="text-amber-400 text-xs">★</span>
+              <span class="font-racing text-xs text-amber-300 uppercase tracking-wider">5TH BIRTHDAY</span>
+              <span class="text-amber-400 text-xs">★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centerpiece: Ayaansh in Stylized Red Grand Prix Racing Car Scene -->
+      <div class="relative z-20 my-auto flex flex-col items-center justify-center">
+        
+        <!-- Star badges and Pit Stop tag -->
+        <div class="w-full flex justify-between items-center px-4 -mb-4 z-30">
+          <div class="bg-black/80 border border-zinc-700 px-2.5 py-1 rounded-lg shadow-lg rotate-[-8deg] flex items-center space-x-1">
+            <span class="text-amber-400 text-xs">⭐</span>
+            <span class="font-barlow text-[10px] font-black tracking-wider text-white uppercase">FAST 5</span>
+          </div>
+          <div class="bg-gradient-to-r from-amber-500 to-red-600 border border-yellow-200 px-3 py-1 rounded-lg shadow-lg rotate-[8deg] flex items-center space-x-1">
+            <span class="font-barlow text-[10px] font-black tracking-wider text-white uppercase">PIT STOP FOR FUN! 🏁</span>
+          </div>
+        </div>
+
+        <!-- Racing Illustration with Ayaansh Cockpit -->
+        <div class="relative w-64 h-56 flex items-center justify-center">
+          
+          <!-- Speed Aura behind car -->
+          <div class="absolute bottom-6 w-48 h-10 bg-red-600/40 blur-xl rounded-full engine-pulse"></div>
+
+          <!-- The Driver Photo Frame (Ayaansh cutout positioned in race car) -->
+          <div class="absolute top-2 z-20 flex flex-col items-center">
+            <div class="relative group">
+              <!-- Driver Helmet / Halo Accent Ring -->
+              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-f1red via-amber-400 to-white shadow-2xl overflow-hidden border-2 border-zinc-900 relative">
+                <!-- Ayaansh's Photo Display -->
+                <img id="driverPhotoImg" 
+                     src="image_3.png" 
+                     alt="Ayaansh - The Birthday Boy Racer" 
+                     class="w-full h-full object-cover object-top scale-105 transition-transform duration-300"
+                     onerror="this.onerror=null; this.src='https://placehold.co/240x240/1a1a1a/ffffff?text=Ayaansh+⭐';">
+              </div>
+
+              <!-- Racing Pilot Badge -->
+              <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-black/90 border border-amber-400 px-2 py-0.5 rounded-full shadow flex items-center space-x-1">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="font-barlow text-[9px] font-black tracking-widest text-amber-300 uppercase">DRIVER #5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formula Racing Car Vector Body Structure -->
+          <svg class="w-full h-full absolute bottom-0 z-10 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.9)]" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rear Wing -->
+            <rect x="60" y="70" width="200" height="12" rx="4" fill="#B30000" stroke="#FF4D4D" stroke-width="1.5"/>
+            <rect x="50" y="65" width="16" height="28" rx="2" fill="#1A1A1A"/>
+            <rect x="254" y="65" width="16" height="28" rx="2" fill="#1A1A1A"/>
+            <!-- Wheels Rear -->
+            <rect x="24" y="90" width="32" height="60" rx="8" fill="#151719" stroke="#333" stroke-width="2"/>
+            <rect x="264" y="90" width="32" height="60" rx="8" fill="#151719" stroke="#333" stroke-width="2"/>
+            <!-- Wheels Front -->
+            <rect x="18" y="145" width="38" height="64" rx="8" fill="#111" stroke="#383838" stroke-width="2"/>
+            <circle cx="37" cy="177" r="12" fill="#888" stroke="#E10600" stroke-width="3"/>
+            <rect x="264" y="145" width="38" height="64" rx="8" fill="#111" stroke="#383838" stroke-width="2"/>
+            <circle cx="283" cy="177" r="12" fill="#888" stroke="#E10600" stroke-width="3"/>
+            <!-- Race Car Body Shell -->
+            <path d="M120 78 L200 78 L215 130 L235 155 L245 185 L75 185 L85 155 L105 130 Z" fill="#E10600"/>
+            <!-- Aerodynamic Sidepods & Highlights -->
+            <path d="M130 95 L190 95 L210 140 L230 180 L90 180 L110 140 Z" fill="#B30000"/>
+            <path d="M160 85 L160 185" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="8 6"/>
+            <!-- Cockpit Surround -->
+            <ellipse cx="160" cy="100" rx="35" ry="24" fill="#0A0A0C" stroke="#E10600" stroke-width="3"/>
+            <!-- Nose Cone -->
+            <path d="M125 140 L195 140 L185 200 L160 212 L135 200 Z" fill="#E10600" stroke="#FF5757" stroke-width="1.5"/>
+            <!-- Number 5 Badge on Hood -->
+            <circle cx="160" cy="175" r="16" fill="#FFFFFF" stroke="#111" stroke-width="2"/>
+            <text x="160" y="182" text-anchor="middle" font-family="'Racing Sans One', cursive" font-size="20" font-weight="900" fill="#E10600">5</text>
+            <!-- Front Wing Spoiler -->
+            <rect x="45" y="195" width="230" height="14" rx="4" fill="#111" stroke="#E10600" stroke-width="2"/>
+            <path d="M50 192 L75 192 L70 205 L45 205 Z" fill="#E10600"/>
+            <path d="M270 192 L245 192 L250 205 L275 205 Z" fill="#E10600"/>
+          </svg>
+        </div>
+
+        <!-- Race Track Asphalt Horizon Curve -->
+        <div class="w-full flex flex-col items-center -mt-2">
+          <div class="h-2 w-full bg-checker opacity-40"></div>
+          <div class="h-1 w-full curb-pattern"></div>
+        </div>
+      </div>
+
+      <!-- Footer Callout on Front Cover -->
+      <div class="relative z-20 pb-2 text-center">
+        <div class="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-zinc-900 via-black to-zinc-900 border border-zinc-700 shadow-md">
+          <span class="text-xs">🏆</span>
+          <span class="font-barlow italic font-extrabold uppercase text-[11px] tracking-wider text-zinc-300">
+            LET'S HAVE A GRAND PRIX OF FUN!
+          </span>
+          <span class="text-xs">🏁</span>
+        </div>
+      </div>
+
+      <!-- Bottom Racing Chequered Bar -->
+      <div class="absolute bottom-0 left-0 right-0 h-3 bg-checker-white opacity-90 z-10"></div>
+    </div>
+  </template>
+
+  <!-- PANEL 2 TEMPLATE: INSIDE LEFT -->
+  <template id="tmpl-panel2">
+    <div class="relative w-full h-full bg-gradient-to-b from-[#15171d] via-[#101217] to-[#0a0b0d] text-white flex flex-col justify-between overflow-hidden p-6 select-none border-r border-zinc-800">
+      
+      <!-- Top Track Edge Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2.5 curb-pattern"></div>
+
+      <!-- Racing Flag Background Watermark -->
+      <div class="absolute right-0 top-1/4 opacity-10 text-9xl pointer-events-none transform rotate-12 select-none">
+        🏁
+      </div>
+
+      <!-- Header Section -->
+      <div class="relative z-10 pt-4">
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+          <div class="flex items-center space-x-2">
+            <span class="text-2xl">🏁</span>
+            <h3 class="font-racing text-2xl uppercase tracking-wider text-f1red drop-shadow">
+              RACE ON OVER!
+            </h3>
+          </div>
+          <span class="text-xs font-barlow font-bold px-2 py-1 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">PANEL 2</span>
+        </div>
+        <div class="w-16 h-1 bg-amber-400 rounded-full mt-1"></div>
+      </div>
+
+      <!-- Heart of the Invitation Message -->
+      <div class="relative z-10 my-auto py-4 flex flex-col items-center text-center">
+        
+        <!-- Racing Badge Icon -->
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-f1red to-amber-600 p-0.5 shadow-xl shadow-red-950/60 mb-5 flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
+          <div class="w-full h-full bg-zinc-950 rounded-[14px] flex flex-col items-center justify-center">
+            <span class="text-2xl">🏎️</span>
+          </div>
+        </div>
+
+        <!-- The Exact Provided Text Content -->
+        <div class="bg-zinc-900/80 rounded-2xl p-6 border border-zinc-800/80 shadow-2xl backdrop-blur-md relative overflow-hidden">
+          <div class="absolute -top-3 -right-3 text-4xl opacity-20 text-f1red">★</div>
+          <div class="absolute -bottom-3 -left-3 text-4xl opacity-20 text-f1gold">★</div>
+          
+          <p class="font-racing text-lg sm:text-xl text-white tracking-wide leading-snug uppercase mb-4">
+            “Come join us as we celebrate<br>
+            <span class="text-f1red font-bungee text-2xl">Ayaansh</span><br>
+            turning 5!”
+          </p>
+
+          <div class="h-0.5 w-16 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent my-3"></div>
+
+          <p class="font-sans text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
+            Get ready for an evening filled with<br>
+            <strong class="text-amber-400 font-bold">fun, laughter, food</strong> and<br>
+            <strong class="text-white font-bold">unforgettable memories!</strong>
+          </p>
+        </div>
+
+        <!-- Pit Stop Features Tag Pills -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
+          <span class="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-semibold text-zinc-300 flex items-center space-x-1">
+            <span>🍕</span> <span>Delicious Feast</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-semibold text-zinc-300 flex items-center space-x-1">
+            <span>🎮</span> <span>Games & Smiles</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-semibold text-zinc-300 flex items-center space-x-1">
+            <span>🎂</span> <span>Cake Cutting</span>
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Bottom Speed Banner -->
+      <div class="relative z-10 pb-3 text-center border-t border-zinc-800/80 pt-3">
+        <p class="text-[11px] font-barlow tracking-widest text-zinc-400 uppercase font-black">
+          FASTEN YOUR SEATBELTS &bull; THE COUNTDOWN BEGINS
+        </p>
+      </div>
+
+      <!-- Bottom Track Curb -->
+      <div class="absolute bottom-0 left-0 right-0 h-2.5 curb-pattern"></div>
+    </div>
+  </template>
+
+  <!-- PANEL 3 TEMPLATE: INSIDE RIGHT -->
+  <template id="tmpl-panel3">
+    <div class="relative w-full h-full bg-gradient-to-b from-[#180808] via-[#100d14] to-[#0a0a0f] text-white flex flex-col justify-between overflow-hidden p-6 select-none">
+      
+      <!-- Top Track Curb -->
+      <div class="absolute top-0 left-0 right-0 h-2.5 curb-pattern"></div>
+
+      <!-- Header Section: THE RACE DAY -->
+      <div class="relative z-10 pt-4 text-center">
+        <div class="inline-flex items-center justify-center space-x-2 mb-1">
+          <span class="text-xl">🏁</span>
+          <h3 class="font-racing text-2xl sm:text-3xl uppercase tracking-wider text-amber-400 drop-shadow">
+            THE RACE DAY
+          </h3>
+          <span class="text-xl">🏁</span>
+        </div>
+        <p class="text-[10px] font-barlow tracking-[0.25em] text-zinc-400 font-black uppercase">OFFICIAL SCHEDULE & CIRCUIT LOCATION</p>
+        <div class="w-20 h-1 bg-f1red mx-auto rounded-full mt-2"></div>
+      </div>
+
+      <!-- Date & Time Grand Prix Ticket Card -->
+      <div class="relative z-10 my-auto py-2 flex flex-col space-y-4">
+        
+        <!-- Date & Time Box (Large & Ultra-Legible for WhatsApp Screens) -->
+        <div class="bg-zinc-900/90 rounded-2xl p-4 border-2 border-f1red/50 shadow-xl relative overflow-hidden backdrop-blur-md">
+          <!-- Flag watermarks inside -->
+          <div class="absolute right-2 top-2 opacity-20 text-3xl">🗓️</div>
+          
+          <div class="flex items-center space-x-3">
+            <div class="w-14 h-14 rounded-xl bg-f1red flex flex-col items-center justify-center text-white font-black shadow-lg shadow-f1red/40 flex-shrink-0">
+              <span class="text-xs uppercase font-barlow tracking-wider">SEP</span>
+              <span class="text-2xl font-racing leading-none">26</span>
+            </div>
+            
+            <div class="flex-grow">
+              <div class="font-racing text-xl sm:text-2xl text-white tracking-wide">
+                26th September
+              </div>
+              <div class="flex items-center space-x-1.5 text-amber-400 font-bold text-sm sm:text-base mt-0.5">
+                <span>⏱</span>
+                <span>6:30 PM onwards</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Circuit Location Box -->
+        <div class="bg-zinc-900/90 rounded-2xl p-4 border border-zinc-700 shadow-xl backdrop-blur-md flex flex-col justify-between">
+          <div class="flex items-start space-x-2.5">
+            <span class="text-xl flex-shrink-0 mt-0.5">📍</span>
+            <div>
+              <!-- Venue Name -->
+              <h4 class="font-racing text-lg sm:text-xl text-amber-300 uppercase tracking-wide leading-tight">
+                ROYAL ANDHRA SPICE
+              </h4>
+              <!-- Full Exact Provided Address -->
+              <p class="text-xs text-zinc-300 font-medium leading-relaxed mt-1.5">
+                602, 5th A Cross Rd, HRBR Layout 2nd Block,<br>
+                HRBR Layout, Banaswadi,<br>
+                Bengaluru, Karnataka 560043
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Navigation Link -->
+          <div class="mt-3 pt-3 border-t border-zinc-800 flex items-center justify-between">
+            <span class="text-[11px] text-zinc-400 flex items-center space-x-1">
+              <span>🧭</span>
+              <span>Banaswadi Circuit</span>
+            </span>
+            <a href="https://www.google.com/maps/search/?api=1&query=ROYAL+ANDHRA+SPICE+602+5th+A+Cross+Rd+HRBR+Layout+2nd+Block+Banaswadi+Bengaluru+Karnataka+560043" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-amber-500 hover:bg-amber-400 text-black font-barlow font-black text-xs uppercase tracking-wider rounded-lg shadow transition">
+              Get Directions ➔
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Note -->
+      <div class="relative z-10 pb-3 text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 bg-black/60 rounded-full border border-zinc-800 text-[10px] text-zinc-400 font-medium">
+          <span>🚦</span>
+          <span>Green lights go on at 6:30 PM Sharp!</span>
+        </div>
+      </div>
+
+      <!-- Bottom Track Curb -->
+      <div class="absolute bottom-0 left-0 right-0 h-2.5 curb-pattern"></div>
+    </div>
+  </template>
+
+  <!-- PANEL 4 TEMPLATE: BACK COVER -->
+  <template id="tmpl-panel4">
+    <div class="relative w-full h-full bg-gradient-to-b from-[#111315] via-[#090a0d] to-[#040506] text-white flex flex-col justify-between overflow-hidden p-6 select-none border-l border-zinc-800">
+      
+      <!-- Top Finish Line Checkered Arch -->
+      <div class="absolute top-0 left-0 right-0 h-4 bg-checker-white opacity-90"></div>
+      <div class="absolute top-4 left-0 right-0 h-1.5 curb-pattern"></div>
+
+      <!-- Header: FINISH LINE -->
+      <div class="relative z-10 pt-5 text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 shadow-md mb-2">
+          <span class="text-xs">🏁</span>
+          <span class="font-barlow text-[10px] font-black tracking-widest text-zinc-300 uppercase">CHECKERED FLAG FINISH</span>
+          <span class="text-xs">🏁</span>
+        </div>
+        <h3 class="font-racing text-2xl uppercase tracking-wider text-white drop-shadow">
+          THE FINISH LINE
+        </h3>
+        <div class="w-12 h-1 bg-f1red mx-auto rounded-full mt-1.5"></div>
+      </div>
+
+      <!-- RSVP Box & Finish Line Details -->
+      <div class="relative z-10 my-auto py-3 flex flex-col items-center text-center">
+        
+        <!-- Trophy & Crossed Flags Visual -->
+        <div class="relative mb-4">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-b from-amber-400 to-amber-700 p-1 shadow-xl shadow-amber-900/40 flex items-center justify-center">
+            <div class="w-full h-full bg-zinc-950 rounded-full flex items-center justify-center text-3xl">
+              🏆
+            </div>
+          </div>
+          <span class="absolute -top-1 -right-2 text-xl">🏁</span>
+          <span class="absolute -bottom-1 -left-2 text-xl">🏁</span>
+        </div>
+
+        <!-- RSVP Core Card -->
+        <div class="w-full bg-zinc-900/90 rounded-2xl p-5 border border-zinc-700/80 shadow-2xl backdrop-blur-md">
+          <span class="text-xs font-barlow font-black tracking-[0.25em] text-amber-400 uppercase block mb-1">
+            PLEASE CONFIRM YOUR PIT STOP
+          </span>
+          <h4 class="font-racing text-2xl text-white uppercase tracking-wider mb-2">
+            RSVP
+          </h4>
+
+          <!-- Phone Number Pill -->
+          <a href="tel:8867875672" class="inline-flex items-center justify-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-f1crimson to-f1red hover:from-red-600 hover:to-red-700 text-white font-racing text-xl tracking-wider shadow-lg shadow-red-900/50 transition-transform active:scale-95 mb-3">
+            <span>📞</span>
+            <span>8867875672</span>
+          </a>
+
+          <p class="text-[11px] text-zinc-400 font-medium">
+            Tap the number to call or connect directly via WhatsApp
+          </p>
+        </div>
+
+        <!-- High-octane Finish Line Slogan -->
+        <div class="mt-5 px-3 py-3 rounded-xl bg-black/60 border border-zinc-800">
+          <p class="font-racing text-sm sm:text-base text-amber-300 uppercase tracking-wide">
+            LET’S MAKE THIS RACE ONE TO REMEMBER! 🏁
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Finish Line Checkered Banner -->
+      <div class="relative z-10 pb-4 text-center">
+        <div class="w-full h-4 bg-checker-white opacity-80 rounded mb-2"></div>
+        <p class="text-[10px] font-barlow tracking-widest text-zinc-500 uppercase font-black">
+          SEE YOU ON THE PODIUM &bull; AYAANSH'S 5TH BIRTHDAY
+        </p>
+      </div>
+
+      <!-- Bottom Curb -->
+      <div class="absolute bottom-0 left-0 right-0 h-2.5 curb-pattern"></div>
+    </div>
+  </template>
+
+  <script>
+    // State Variables
+    let currentStep = 1;
+    let isSoundEnabled = false;
+    let engineSynth = null;
+    let revNoise = null;
+
+    // Initialize Tone.js Racing Engine Sound Synthesis
+    function initEngineAudio() {
+      try {
+        if (!engineSynth) {
+          // Tone Synth for engine revving notes
+          engineSynth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: "sawtooth" },
+            envelope: { attack: 0.05, decay: 0.3, sustain: 0.2, release: 0.8 }
+          }).toDestination();
+          engineSynth.volume.value = -12;
+        }
+      } catch (e) {
+        console.warn("Audio init deferred:", e);
+      }
+    }
+
+    function toggleEngineAudio() {
+      Tone.start();
+      initEngineAudio();
+      isSoundEnabled = !isSoundEnabled;
+      const soundBtn = document.getElementById('soundBtn');
+      const soundIcon = document.getElementById('soundIcon');
+      const soundText = document.getElementById('soundText');
+
+      if (isSoundEnabled) {
+        soundIcon.innerText = "🔊";
+        soundText.innerText = "Sound ON";
+        soundBtn.classList.add('border-f1red', 'text-f1red');
+        playRevSound();
+      } else {
+        soundIcon.innerText = "🔇";
+        soundText.innerText = "Sound OFF";
+        soundBtn.classList.remove('border-f1red', 'text-f1red');
+      }
+    }
+
+    function playRevSound() {
+      if (!isSoundEnabled || !engineSynth) return;
+      try {
+        const now = Tone.now();
+        // Vroom chord progression
+        engineSynth.triggerAttackRelease(["C2", "G2"], "16n", now);
+        engineSynth.triggerAttackRelease(["D2", "A2"], "16n", now + 0.15);
+        engineSynth.triggerAttackRelease(["E2", "B2"], "8n", now + 0.3);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function playCheerChime() {
+      if (!isSoundEnabled || !engineSynth) return;
+      try {
+        const now = Tone.now();
+        engineSynth.triggerAttackRelease(["C4", "E4", "G4", "C5"], "8n", now);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function setFoldStep(step) {
+      currentStep = step;
+      playRevSound();
+      updateFoldStages();
+    }
+
+    function nextFoldStep() {
+      currentStep = currentStep < 4 ? currentStep + 1 : 1;
+      playRevSound();
+      updateFoldStages();
+      if (currentStep === 4) {
+        triggerConfettiBurst();
+      }
+    }
+
+    function prevFoldStep() {
+      currentStep = currentStep > 1 ? currentStep - 1 : 4;
+      playRevSound();
+      updateFoldStages();
+    }
+
+    function updateFoldStages() {
+      // Update Navigation Buttons
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`stepBtn${i}`);
+        const stage = document.getElementById(`stagePanel${i}`);
+        
+        if (i === currentStep) {
+          btn.className = "step-nav px-3 py-1 text-xs font-bold rounded-lg border border-f1red bg-f1red text-white flex items-center space-x-1 shadow transition-all scale-105";
+          stage.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-full', '-translate-x-full');
+          stage.classList.add('opacity-100', 'translate-x-0');
+        } else if (i < currentStep) {
+          btn.className = "step-nav px-3 py-1 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-800 text-zinc-400 hover:bg-zinc-700 flex items-center space-x-1 shadow transition-all";
+          stage.classList.remove('opacity-100', 'translate-x-0', 'translate-x-full');
+          stage.classList.add('opacity-0', 'pointer-events-none', '-translate-x-full');
+        } else {
+          btn.className = "step-nav px-3 py-1 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-800 text-zinc-400 hover:bg-zinc-700 flex items-center space-x-1 shadow transition-all";
+          stage.classList.remove('opacity-100', 'translate-x-0', '-translate-x-full');
+          stage.classList.add('opacity-0', 'pointer-events-none', 'translate-x-full');
+        }
+      }
+
+      // Indicator label
+      const indicator = document.getElementById('pageIndicator');
+      if (indicator) {
+        indicator.innerText = `PANEL ${currentStep} OF 4`;
+      }
+    }
+
+    function setViewMode(mode) {
+      const foldContainer = document.getElementById('foldViewContainer');
+      const allContainer = document.getElementById('allPanelsContainer');
+      const foldBtn = document.getElementById('viewFoldBtn');
+      const allBtn = document.getElementById('viewAllBtn');
+
+      if (mode === 'fold') {
+        foldContainer.classList.remove('hidden');
+        allContainer.classList.add('hidden');
+        foldBtn.classList.add('bg-f1red', 'text-white');
+        foldBtn.classList.remove('text-zinc-400');
+        allBtn.classList.remove('bg-f1red', 'text-white');
+        allBtn.classList.add('text-zinc-400');
+      } else {
+        foldContainer.classList.add('hidden');
+        allContainer.classList.remove('hidden');
+        allBtn.classList.add('bg-f1red', 'text-white');
+        allBtn.classList.remove('text-zinc-400');
+        foldBtn.classList.remove('bg-f1red', 'text-white');
+        foldBtn.classList.add('text-zinc-400');
+        triggerConfettiBurst();
+      }
+    }
+
+    // Populate the template clones into both interactive fold stage & 4-panel spread
+    function populateTemplates() {
+      const p1 = document.getElementById('tmpl-panel1').innerHTML;
+      const p2 = document.getElementById('tmpl-panel2').innerHTML;
+      const p3 = document.getElementById('tmpl-panel3').innerHTML;
+      const p4 = document.getElementById('tmpl-panel4').innerHTML;
+
+      // Inject into 3D stage
+      document.getElementById('frontCoverInject').innerHTML = p1;
+      document.getElementById('insideLeftInject').innerHTML = p2;
+      document.getElementById('insideRightInject').innerHTML = p3;
+      document.getElementById('backCoverInject').innerHTML = p4;
+
+      // Inject into 4-panel spread grid
+      document.getElementById('panel1Clone').innerHTML = p1;
+      document.getElementById('panel2Clone').innerHTML = p2;
+      document.getElementById('panel3Clone').innerHTML = p3;
+      document.getElementById('panel4Clone').innerHTML = p4;
+    }
+
+    // Custom Photo Replacement Handler (allows testing local pictures while defaulting to Ayaansh)
+    function handleCustomPhotoUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imgs = document.querySelectorAll('#driverPhotoImg');
+          imgs.forEach(img => {
+            img.src = e.target.result;
+          });
+          triggerConfettiBurst();
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function triggerConfettiBurst() {
+      try {
+        confetti({
+          particleCount: 70,
+          spread: 80,
+          origin: { y: 0.65 },
+          colors: ['#E10600', '#FFB800', '#FFFFFF', '#000000', '#FF4D4D']
+        });
+        playCheerChime();
+      } catch(e) {
+        console.warn(e);
+      }
+    }
+
+    // Copy WhatsApp message text directly
+    function copyInviteText() {
+      const inviteMsg = 
+`🏎️🏁 START YOUR ENGINES! 🏁🏎️
+You're invited to celebrate AYAANSH’S 5TH BIRTHDAY!
+
+“Come join us as we celebrate Ayaansh turning 5!
+Get ready for an evening filled with fun, laughter, food and unforgettable memories!”
+
+🏁 THE RACE DAY 🏁
+📅 Date: 26th September
+⏰ Time: 6:30 PM onwards
+📍 Venue: ROYAL ANDHRA SPICE
+602, 5th A Cross Rd, HRBR Layout 2nd Block, HRBR Layout, Banaswadi, Bengaluru, Karnataka 560043
+
+RSVP: 8867875672
+LET’S MAKE THIS RACE ONE TO REMEMBER! 🏆🏁`;
+
+      const el = document.createElement('textarea');
+      el.value = inviteMsg;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      const copyBtnText = document.getElementById('copyBtnText');
+      const copyIcon = document.getElementById('copyIcon');
+      copyBtnText.innerText = "Copied to Clipboard! ✓";
+      copyIcon.innerText = "✅";
+      triggerConfettiBurst();
+
+      setTimeout(() => {
+        copyBtnText.innerText = "Copy WhatsApp Text";
+        copyIcon.innerText = "📋";
+      }, 3000);
+    }
+
+    // Add to Google Calendar URL helper
+    function addToGoogleCalendar() {
+      // 26th September event (Bengaluru IST timezone: +05:30)
+      // Using universal 26th September 18:30 IST
+      const title = encodeURIComponent("🏁 Ayaansh's 5th Birthday Grand Prix!");
+      const details = encodeURIComponent("Come join us as we celebrate Ayaansh turning 5! RSVP: 8867875672");
+      const location = encodeURIComponent("ROYAL ANDHRA SPICE, 602, 5th A Cross Rd, HRBR Layout 2nd Block, Banaswadi, Bengaluru, Karnataka 560043");
+      // Format: YYYYMMDDTHHMMSS
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20260926T130000Z/20260926T170000Z&details=${details}&location=${location}`;
+      window.open(gcalUrl, '_blank');
+    }
+
+    // Native Web Share API helper for sharing the live web link directly to WhatsApp or Contacts
+    function shareInvitationLink() {
+      const shareData = {
+        title: "🏎️ Ayaansh's 5th Birthday Grand Prix!",
+        text: "Start your engines! You're invited to celebrate Ayaansh turning 5! Tap to view the official 4-panel invitation:",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch((err) => {
+          if (err.name !== 'AbortError') {
+            copyInviteText();
+          }
+        });
+      } else {
+        copyInviteText();
+      }
+    }
+
+    // Touch gesture swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleTouchStart(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }
+
+    function handleTouchEnd(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    }
+
+    function handleGesture() {
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 45) {
+        if (diff < 0) {
+          nextFoldStep(); // Swiped left -> Next
+        } else {
+          prevFoldStep(); // Swiped right -> Previous
+        }
+      }
+    }
+
+    // Window load setup
+    window.addEventListener('DOMContentLoaded', () => {
+      populateTemplates();
+      updateFoldStages();
+
+      const foldContainer = document.getElementById('foldViewContainer');
+      if (foldContainer) {
+        foldContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+        foldContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+      }
+
+      // Initial friendly celebration burst
+      setTimeout(() => {
+        triggerConfettiBurst();
+      }, 700);
+    });
+  </script>
+
+</body>
+</html>
